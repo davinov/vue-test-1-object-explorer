@@ -42,4 +42,22 @@ export default {
 </script>
 
 <style lang="scss">
+.object-explorer {
+  text-align: left;
+  margin-top: 1em;
+}
+
+.object-explorer__property {
+  display: flex;
+  flex-direction: row;
+}
+
+.object-explorer__property-name {
+  font-weight: bold;
+
+  &::after {
+    content: ':';
+    margin-right: 1em;
+  }
+}
 </style>
