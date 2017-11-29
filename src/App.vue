@@ -3,13 +3,21 @@
     <img src="./assets/logo.png">
     <h1>Toucan Object explorer</h1>
     <h2>Test by <!-- put your name here --></h2>
-
+    <object-explorer
+      :obj="obj"
+    >
+    </object-explorer>
   </div>
 </template>
 
 <script>
+import ObjectExplorer from './object-explorer.vue'
+
 export default {
   name: 'app',
+  components: {
+    ObjectExplorer
+  },
   data () {
     return {
       obj: {
