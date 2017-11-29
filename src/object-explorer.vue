@@ -5,7 +5,12 @@
       v-for="objProperty in objProperties"
       :key="objProperty.name"
     >
-      <div class="object-explorer__property-name"> {{ objProperty.name }} </div>
+      <div class="object-explorer__property-name">
+        <input
+          :value="objProperty.name"
+          @blur="updatePropertyName(objProperty.name, $event.target.value)"
+        />
+      </div>
       <div class="object-explorer__property-value" v-if="!objProperty.isObject">
         <input
           :value="obj[objProperty.name]"
@@ -48,6 +53,14 @@ export default {
         'objUpdated',
         Object.assign({}, this.obj, {[propertyName]: newValue})
       );
+    },
+    updatePropertyName (oldName, newName) {
+      var newObject = Object.assign({}, this.obj, {[newName]: this.obj[oldName]});
+      delete newObject[oldName];
+      this.$emit(
+        'objUpdated',
+        newObject
+      )
     }
   }
 }
@@ -65,7 +78,10 @@ export default {
 }
 
 .object-explorer__property-name {
-  font-weight: bold;
+  input {
+    font-weight: bold;
+    width: 100px;
+  }
 
   &::after {
     content: ':';
