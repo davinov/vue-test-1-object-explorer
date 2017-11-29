@@ -7,7 +7,10 @@
     >
       <div class="object-explorer__property-name"> {{ objProperty.name }} </div>
       <div class="object-explorer__property-value" v-if="!objProperty.isObject">
-        {{ obj[objProperty.name] }}
+        <input
+          :value="obj[objProperty.name]"
+          @input="updatePropertyValue(objProperty.name, $event.target.value)"
+        />
       </div>
       <object-explorer
         class="object-explorer__sub-object"
@@ -36,6 +39,11 @@ export default {
           isObject: this.obj[k] instanceof Object
         };
       });
+    }
+  },
+  methods: {
+    updatePropertyValue (propertyName, newValue) {
+      this.obj[propertyName] = newValue;
     }
   }
 }
