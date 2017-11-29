@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     updatePropertyValue (propertyName, newValue) {
-      this.obj[propertyName] = newValue;
+      this.obj = Object.assign({}, this.obj, {[propertyName]: newValue});
     }
   }
 }
