@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>Toucan Object explorer</h1>
-    <h2>Test by <!-- put your name here --></h2>
+    <h2>Test by Purple machine</h2>
     <object-explorer
       :obj="obj"
       @objUpdated="updateObject"
