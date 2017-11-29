@@ -5,6 +5,7 @@
     <h2>Test by <!-- put your name here --></h2>
     <object-explorer
       :obj="obj"
+      @objUpdated="updateObject"
     >
     </object-explorer>
   </div>
@@ -29,6 +30,11 @@ export default {
         },
         stuff: 'yeah'
       }
+    }
+  },
+  methods: {
+    updateObject (newObj) {
+      this.obj = newObj;
     }
   }
 }

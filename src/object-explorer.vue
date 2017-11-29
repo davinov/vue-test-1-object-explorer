@@ -43,7 +43,10 @@ export default {
   },
   methods: {
     updatePropertyValue (propertyName, newValue) {
-      this.obj = Object.assign({}, this.obj, {[propertyName]: newValue});
+      this.$emit(
+        'objUpdated',
+        Object.assign({}, this.obj, {[propertyName]: newValue})
+      );
     }
   }
 }
