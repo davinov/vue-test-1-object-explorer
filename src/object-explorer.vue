@@ -16,6 +16,7 @@
         class="object-explorer__sub-object"
         v-if="objProperty.isObject"
         :obj="obj[objProperty.name]"
+        @objUpdated="val => updatePropertyValue(objProperty.name, val)"
       ></object-explorer>
     </div>
   </div>
